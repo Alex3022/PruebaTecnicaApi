@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Actualizar mascota","Actualizar mascotas","SUCCESS","2022-12-15T17:18:44.2670519-05:00[America/Bogota]","0.0","3.86"
+"Agregar mascota a la tienda","Agregar mascota a la tienda","SUCCESS","2022-12-15T18:59:47.2733083-05:00[America/Bogota]","0.0","4.28"
+"Buscar mascota status","Buscar mascotas status","SUCCESS","2022-12-15T18:08:53.9686976-05:00[America/Bogota]","0.0","3.87"
+"Consultar mascotas","Consultar mascota","SUCCESS","2022-12-15T16:44:12.1436004-05:00[America/Bogota]","0.0","3.86"

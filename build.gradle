@@ -1,0 +1,81 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.2.4"
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.sonarqube' version "3.3"
+}
+
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+
+wrapper {
+    gradleVersion '7.0'
+    distributionType Wrapper.DistributionType.ALL
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+ext {
+    serenityVersion = "3.2.4"
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-cucumber:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-ensure:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-core:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$serenityVersion"
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'junit:junit:4.13.2'
+    implementation 'org.slf4j:slf4j-simple:2.0.3'
+    implementation 'org.assertj:assertj-core:3.15.0'
+    implementation 'io.rest-assured:rest-assured:5.2.0'
+    testImplementation 'junit:junit:4.13.2'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    compileOnly fileTree(dir: 'libs', include: '*.jar')
+    implementation 'org.xerial:sqlite-jdbc:3.40.0.0'
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+}
+
+//TODO ajustar parametros de task test con runners del proyecto
+test {
+
+    include "**/*AgregarMascotasRunner.class"
+    include "**/*ConsultarMascotasRunner.class"
+    include "**/*ActualizarMascotasRunner.class"
+    include "**/*BuscarStatusMascotaRunner.class"
+    testLogging.showStandardStreams = true
+}
+test.finalizedBy(aggregate)
+
+sonarqube {
+    properties {
+        property "sonar.java.binaries", "src/main"
+        property "sonar.exclusions", "**/*Generated.java, **/*Templates.java"
+    }
+
+
+}

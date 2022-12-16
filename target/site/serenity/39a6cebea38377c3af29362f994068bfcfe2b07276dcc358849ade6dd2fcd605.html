@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Buscar mascotas status</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<!-- ImgPreview -->
+<script src="scripts/imgpreview.full.jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="results-page">
+
+
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">ejemplos-demos</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs">
+            <a href="index.html" class="breadcrumbs">Home</a>
+
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="5b5e928e7444c126e97227cd3b7ce824a4e8c4d258fc89fa182926f86cb2ace8.html">Buscar mascota status</a>
+        > Buscar mascotas status
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 15-12-2022 18:08</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                                <div>
+                                    <h3 class="discreet-story-header">
+                                        <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
+                                        <span class="story-header-title">Buscar Mascota Status </span>
+                                    </h3>
+
+                                </div>
+
+                        </td>
+                        <td valign="top">
+                            <p class="tag">
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">
+                                    Buscar mascotas status
+                                        <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <!-- CAST MEMBERS -->
+            <div>&nbsp;</div>
+            <div>
+                <h3 class="discreet-story-header">
+                    <i class="fs-2 bi bi-people large-icon"></i>
+                    <span class="story-header-title">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#castDetails"
+                           role="button" aria-expanded="true" aria-controls="castDetails">Cast</a>
+                    </span>
+                </h3>
+            </div>
+            <div class="collapse multi-collapse" id="castDetails">
+                <table class="cast">
+                    <tr>
+                            <td width="100%">
+                                <h4>
+                                    <i class="fs-2 bi bi-person"></i>&nbsp;
+                                    <span>
+                                        <a data-toggle="collapse" href="#abilities-administrador" aria-expanded="false" aria-controls="abilities">administrador</a>
+                                        
+                                    </span>
+                                </h4>
+                                <div class="collapse multi-collapse" id="abilities-administrador">
+                                    <div>
+                                        <span class="cast-description">administrador can:</span>
+                                        <ul>
+                                                <li>call an API at https://petstore.swagger.io/v2</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </td>
+        </tr>
+        </table>
+    </div>
+    <!-- END CAST MEMBERS -->
+
+
+</div>
+</div>
+
+<div class="clr"></div>
+
+
+<div id="beforetable"></div>
+
+
+<div id="tablecontents">
+    <div>
+        <table class="step-table">
+            <tr class="step-titles">
+                <th width="65">
+                </th>
+                <th class="step-description-column greentext">
+                    Steps
+                </th>
+
+                <th width="130" class="greentext">Outcome</th>
+                <th width="100" class="greentext"><i title="Duration" class="bi bi-stopwatch"></i></th>
+            </tr>
+            <tr class="step-table-separator">
+                <td colspan="5"></td>
+            </tr>
+
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="0"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Dado como "administrador" quiero usar la pet store api
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">052ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="1"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Dado que quiero buscar una mascota por sus status
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">009ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Cuando haga un llamado  a la api buscar
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">3s 239ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                administrador executes a GET on the resource /pet/findByStatus?status=sold
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">2s 901ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET https://petstore.swagger.io/v2/pet/findByStatus?status=sold
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-5">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: https://petstore.swagger.io/v2/pet/findByStatus?status=sold</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Date: Thu, 15 Dec 2022 23:04:19 GMT<br>Content-Type: application/json<br>Transfer-Encoding: chunked<br>Connection: keep-alive<br>Access-Control-Allow-Origin: *<br>Access-Control-Allow-Methods: GET, POST, DELETE, PUT<br>Access-Control-Allow-Headers: Content-Type, api_key, Authorization<br>Server: Jetty(9.2.9.v20150224)</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    {<br>        &quot;id&quot;: 90369791,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -28594492,<br>            &quot;name&quot;: &quot;ad&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;nulla ipsum dolor&quot;,<br>            &quot;cillum&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 16964237,<br>                &quot;name&quot;: &quot;velit aliquip occaecat voluptate&quot;<br>            },<br>            {<br>                &quot;id&quot;: -32143651,<br>                &quot;name&quot;: &quot;sed nulla sint&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854595855,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -27322073,<br>            &quot;name&quot;: &quot;in nulla&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;laborum nostrud nisi&quot;,<br>            &quot;velit&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 54262278,<br>                &quot;name&quot;: &quot;nostrud in elit do Excepteur&quot;<br>            },<br>            {<br>                &quot;id&quot;: 78506224,<br>                &quot;name&quot;: &quot;pariatur eu ex&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 22061989,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 74991505,<br>            &quot;name&quot;: &quot;22222222222&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;ea commodo magna consectetur&quot;,<br>            &quot;in id eiusmod&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 65746043,<br>                &quot;name&quot;: &quot;dolor sint123&quot;<br>            },<br>            {<br>                &quot;id&quot;: -8134129,<br>                &quot;name&quot;: &quot;gled&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 1711982,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 52551857,<br>            &quot;name&quot;: &quot;non Lorem tempor&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;veniam&quot;,<br>            &quot;reprehenderit commodo proident occaecat&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: -12689894,<br>                &quot;name&quot;: &quot;veniam mollit&quot;<br>            },<br>            {<br>                &quot;id&quot;: -27514803,<br>                &quot;name&quot;: &quot;sed ullamco ut&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854595876,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 95673763,<br>            &quot;name&quot;: &quot;et eiusm&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;laboris labore i&quot;,<br>            &quot;sint dolor consequat&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 45098116,<br>                &quot;name&quot;: &quot;dolor Excepteur&quot;<br>            },<br>            {<br>                &quot;id&quot;: -51366881,<br>                &quot;name&quot;: &quot;eiusmod aute minim in&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854595878,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 62046841,<br>            &quot;name&quot;: &quot;incididunt enim exercitation&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;aliquip cillum&quot;,<br>            &quot;aliquip in in do&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 69730294,<br>                &quot;name&quot;: &quot;quis consequat ullamco ut&quot;<br>            },<br>            {<br>                &quot;id&quot;: -82496586,<br>                &quot;name&quot;: &quot;ex minim commodo aliqua veniam&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 40010473,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -13430874,<br>            &quot;name&quot;: &quot;in fugiat ipsum&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;proident sed ut&quot;,<br>            &quot;aute laboris elit occaecat aliquip&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: -64712721,<br>                &quot;name&quot;: &quot;ad&quot;<br>            },<br>            {<br>                &quot;id&quot;: 40504054,<br>                &quot;name&quot;: &quot;in&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 82188160,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 81640824,<br>            &quot;name&quot;: &quot;nisi exercitation reprehenderit dolore&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;proident eu enim&quot;,<br>            &quot;mollit cillum nisi&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 6316356,<br>                &quot;name&quot;: &quot;laborum magn&quot;<br>            },<br>            {<br>                &quot;id&quot;: 73149614,<br>                &quot;name&quot;: &quot;veniam fugiat amet si&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 33845545,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -13100367,<br>            &quot;name&quot;: &quot;deserunt aute irure&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;dolore reprehenderit adipisicing sed&quot;,<br>            &quot;tempor irure consectetur amet&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: -43225306,<br>                &quot;name&quot;: &quot;laborum proident Excepteur&quot;<br>            },<br>            {<br>                &quot;id&quot;: -7466415,<br>                &quot;name&quot;: &quot;ut in cupidatat laboris&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 38541659,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -70999792,<br>            &quot;name&quot;: &quot;dolore aliqua irure&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;cupidatat quis&quot;,<br>            &quot;ipsum deserunt&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 96985450,<br>                &quot;name&quot;: &quot;proident adipisicing officia&quot;<br>            },<br>            {<br>                &quot;id&quot;: -17203769,<br>                &quot;name&quot;: &quot;sunt reprehenderit&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854595901,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 26052472,<br>            &quot;name&quot;: &quot;quis labore id do&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;deserunt nostrud n&quot;,<br>            &quot;&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 9084274,<br>                &quot;name&quot;: &quot;Ut ea cupidatat consectetur laboris&quot;<br>            },<br>            {<br>                &quot;id&quot;: 84195358,<br>                &quot;name&quot;: &quot;sint aliquip consectetur&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 23327731,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -92357313,<br>            &quot;name&quot;: &quot;reprehenderit ut nostrud ut&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;Lorem laboris&quot;,<br>            &quot;laboris&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 89386643,<br>                &quot;name&quot;: &quot;elit esse cillum&quot;<br>            },<br>            {<br>                &quot;id&quot;: -23396785,<br>                &quot;name&quot;: &quot;minim consectetur&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854594924,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 0,<br>            &quot;name&quot;: &quot;string&quot;<br>        },<br>        &quot;name&quot;: &quot;zeus&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;string&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 0,<br>                &quot;name&quot;: &quot;string&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854596039,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 0,<br>            &quot;name&quot;: &quot;string&quot;<br>        },<br>        &quot;name&quot;: &quot;zeus&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;string&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 0,<br>                &quot;name&quot;: &quot;string&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854594923,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 0,<br>            &quot;name&quot;: &quot;string&quot;<br>        },<br>        &quot;name&quot;: &quot;zeus&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;string&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 0,<br>                &quot;name&quot;: &quot;string&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854596468,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 0,<br>            &quot;name&quot;: &quot;string&quot;<br>        },<br>        &quot;name&quot;: &quot;zeus&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;string&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 0,<br>                &quot;name&quot;: &quot;string&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 29798634,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -94022803,<br>            &quot;name&quot;: &quot;fish&quot;<br>        },<br>        &quot;name&quot;: &quot;Name&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;mollit dolor sunt&quot;,<br>            &quot;https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fdk-find-out%2Fimage%2Fupload%2Fq_80%2Cw_1920%2Cf_auto%2FDCTM_Penguin_UK_DK_AL644648_p7nd0z.jpg&amp;imgrefurl=https%3A%2F%2Fwww.dkfindout.com%2Fuk%2Fanimals-and-nature%2Ffish%2Fwhat-is-fish%2F&amp;tbnid=MveprXRS9aQbrM&amp;vet=12ahUKEwiIr8vJ7Nn4AhUH57sIHZQxDSYQMygCegUIARC8AQ..i&amp;docid=KLzen7t0FblZ7M&amp;w=1920&amp;h=1030&amp;q=fish&amp;ved=2ahUKEwiIr8vJ7Nn4AhUH57sIHZQxDSYQMygCegUIARC8AQ&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: -59367625,<br>                &quot;name&quot;: &quot;quis et&quot;<br>            },<br>            {<br>                &quot;id&quot;: -59958608,<br>                &quot;name&quot;: &quot;laborum magna dolore consequat&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 2979863411,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -94022803,<br>            &quot;name&quot;: &quot;fish&quot;<br>        },<br>        &quot;name&quot;: &quot;Name fish&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;mollit dolor sunt&quot;,<br>            &quot;https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fdk-find-out%2Fimage%2Fupload%2Fq_80%2Cw_1920%2Cf_auto%2FDCTM_Penguin_UK_DK_AL644648_p7nd0z.jpg&amp;imgrefurl=https%3A%2F%2Fwww.dkfindout.com%2Fuk%2Fanimals-and-nature%2Ffish%2Fwhat-is-fish%2F&amp;tbnid=MveprXRS9aQbrM&amp;vet=12ahUKEwiIr8vJ7Nn4AhUH57sIHZQxDSYQMygCegUIARC8AQ..i&amp;docid=KLzen7t0FblZ7M&amp;w=1920&amp;h=1030&amp;q=fish&amp;ved=2ahUKEwiIr8vJ7Nn4AhUH57sIHZQxDSYQMygCegUIARC8AQ&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: -59367625,<br>                &quot;name&quot;: &quot;quis et&quot;<br>            },<br>            {<br>                &quot;id&quot;: -59958608,<br>                &quot;name&quot;: &quot;laborum magna dolore consequat&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 50,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;dog_category50&quot;<br>        },<br>        &quot;name&quot;: &quot;dognamesold&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;string&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 51,<br>                &quot;name&quot;: &quot;dognamesold&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 49199499,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 20305865,<br>            &quot;name&quot;: &quot;et cupidatat nisi incididunt&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;sunt esse consequat&quot;,<br>            &quot;Ut nostrud anim adipisicing&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: 33995919,<br>                &quot;name&quot;: &quot;tempor non nostrud&quot;<br>            },<br>            {<br>                &quot;id&quot;: -54707686,<br>                &quot;name&quot;: &quot;qui pariatur&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    },<br>    {<br>        &quot;id&quot;: 9223372036854596768,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: -7676925,<br>            &quot;name&quot;: &quot;elit ut voluptate&quot;<br>        },<br>        &quot;name&quot;: &quot;doggie&quot;,<br>        &quot;photoUrls&quot;: [<br>            &quot;consectetur&quot;,<br>            &quot;in ipsum sit est reprehenderit&quot;<br>        ],<br>        &quot;tags&quot;: [<br>            {<br>                &quot;id&quot;: -27582928,<br>                &quot;name&quot;: &quot;Lorem&quot;<br>            },<br>            {<br>                &quot;id&quot;: -5257316,<br>                &quot;name&quot;: &quot;nostrud reprehenderit enim labore&quot;<br>            }<br>        ],<br>        &quot;status&quot;: &quot;sold&quot;<br>    }<br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Entonces recibio la lista de las mascotas por su status
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">387ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Then informacion buscar sm should be (true)
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">268ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                administrador should see a value that is not null
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">001ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+            <tr class="test-SUCCESS">
+                    <td colspan="2"></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>3.87s</em></span></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="beforefooter"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 3.2.4</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function toggleDiv(divId) {
+        $("#" + divId).toggle();
+        var imgsrc = $(".img" + divId).attr('src');
+        if (imgsrc == 'images/plus.png') {
+            $(".img" + divId).attr("src", function () {
+                return "images/minus.png";
+            });
+
+        } else {
+            $(".img" + divId).attr("src", function () {
+                return "images/plus.png";
+            });
+        }
+    }
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    $(document).ready(function () {
+        $('img.screenshot').imgPreview({
+            imgCSS: {
+                width: '500px'
+            },
+            distanceFromCursor: {top: 10, left: -200}
+        });
+    });
+
+    //]]>
+</script>
+<div id="imgPreviewContainer" style="position: absolute; top: 612px; left: 355px; display: none; " class=""><img
+            src="" style="display: none; "></div>
+<div id="imgPreviewContainer2" style="position: absolute; top: 925px; left: 320px; display: none; " class="">
+    <img style="width: 200px; display: none; " src=""></div>
+<div id="imgPreviewWithStyles" style="position: absolute; top: 1272px; left: 321px; display: none; " class="">
+    <img style="height: 200px; opacity: 1; display: none; " src=""></div>
+<div id="imgPreviewWithStyles2" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+<div id="imgPreviewWithStyles3" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+
+</div>
+</body>
+</html>
