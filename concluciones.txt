@@ -1,0 +1,3 @@
+   CONCLUSIONES 
+
+Las pruebas diseñadas cubren un flujo de crud básico del aplicativo, sin embargo, no se implementa la eliminación de registro. Los registros al ser una prueba de API después de un tiempo se eliminan, de forma automática, por lo cual después de un tiempo puede presentarse el caso de consultar un, id, de un registro creado y que este no exista, el tiempo de respuesta de la API es bastante bueno, sin embargo, son bastante buenos los códigos utilizados en la respuesta son genéricos y no brindan información respecto al proceso que se está ejecutando
